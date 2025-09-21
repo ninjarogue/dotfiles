@@ -1,0 +1,18 @@
+# Bash aliases file
+# Add your custom aliases here
+
+# Example aliases (uncomment and modify as needed):
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+# alias ..='cd ..'
+# alias ...='cd ../..'
+
+alias lh='ls -d .[!.]* 2>/dev/null || echo "No hidden files found"'
+alias glo='git log --oneline --decorate'
+alias gl='git pull'
+alias gm='git merge'
+alias gb='git branch'
+alias gst='git status'
+alias gp='git push'
+alias gco='git checkout'
