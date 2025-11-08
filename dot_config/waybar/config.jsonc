@@ -10,7 +10,13 @@
   "margin-right": 8,
 
   "modules-left": ["custom/omarchy", "hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock", "custom/weather", "network#essid","custom/update", "custom/screenrecording-indicator"],
+  "modules-center": [
+    "clock",
+    "custom/weather",
+    "network#essid",
+    "custom/update",
+    "custom/screenrecording-indicator"
+  ],
   "modules-right": [
     "mpris",
     "group/tray-expander",
@@ -76,8 +82,8 @@
       "format": {
         "mouth": "<span color='#ffead3'><b>{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>",
-      },
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
     },
     "on-click-right": "~/.local/share/omarchy/bin/omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
@@ -95,14 +101,8 @@
     "on-click": "omarchy-launch-wifi"
   },
 
-// EXTRA NETWORK!
-  "network#essid": {
-    "format": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
-    "tooltip-format": "{ifname} via {gwaddr}\n{signalStrength}%"
-  },
-
   "network#icon": {
-    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
@@ -111,11 +111,11 @@
   },
 
   "battery": {
-  "format": "{capacity}%",
-  "format-discharging": "{capacity}%",
-  "format-charging": "{capacity}% ",
-  "format-plugged": "{capacity}% ",
-  "format-full": "{capacity}%",
+    "format": "{capacity}%",
+    "format-discharging": "{capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-full": "{capacity}%",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
@@ -164,18 +164,18 @@
     "icon-size": 12,
     "spacing": 12
   },
-  
+
   //EXTRA MODULES!
   "backlight": {
-      "device": "intel_backlight",
-      "format": "{percent}% {icon}",
-      "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
   },
 
   "memory": {
-      "format": " {used:0.1f}gb",
-      "interval": 2,
-      "on-click": "xdg-terminal-exec btop"
+    "format": " {used:0.1f}gb",
+    "interval": 2,
+    "on-click": "xdg-terminal-exec btop"
   },
 
   "custom/weather": {
