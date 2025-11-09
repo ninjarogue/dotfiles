@@ -1,123 +1,168 @@
 @import "../omarchy/current/theme/waybar.css";
 
+@define-color bg @background;
+@define-color fg @foreground;
+@define-color rd1 #ff9b71;
+@define-color ia1 #101010;
+
 * {
-  /* background-color: @background; */
-  color: @foreground;
-
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: CaskaydiaMono Nerd Font;
+  border-radius: 1px;
+  font-family: "JetBrainsMono Nerd Font Propo";
   font-size: 12px;
+  font-weight: bold;
 }
 
-window#waybar {
-  background: transparent;
-  margin-top: 10px;
-}
-
-window#waybar.empty #window{
-  background: transparent;
-  color: transparent;
-  padding: 0;
-  margin-left: 5;
-  transition: .5s;
-}
-
-mpris.empty {
-  background: transparent;
-}
-
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-}
-
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
-#backlight, #custom-weather, #memory, #mpris, #window,
-#tray,
-#cpu,
-#battery,
-#network,
-#bluetooth,
-#pulseaudio,
-#custom-omarchy,
-#custom-screenrecording-indicator,
-#custom-update {
-  background-color: @background;
-  min-width: 12px;
-
-  border-radius: 10px;
-  padding: 0 10px;
-  margin: 0 0 0 5;
-}
-
-#custom-expand-icon {
-  margin-right: 7px;
+/* --- Tooltip --- */
+tooltip label {
+  color: @fg;
+  text-shadow: none;
 }
 
 tooltip {
-  padding: 2px;
+  background-color: @bg;
+  border-radius: 5px;
+  border: 1px solid @bg;
+  opacity: 0.9;
 }
 
-#custom-update {
-  font-size: 10px;
+/* --- Waybar ---*/
+window#waybar {
+  background-color: transparent;
+  border-bottom: 0px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* --- Modules --- */
+.modules-left {
+  margin: 2px 0 0 0;
+}
+
+.modules-center {
+  background: @bg;
+  margin: 4px 4px 4px 4px;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  border-radius: 1px;
+}
+
+.modules-right {
+  margin: 4px 4px 4px 4px;
+  background: @bg;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  border-radius: 1px;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+  background-color: @bg;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  margin: 2px 4px 4px 4px;
+}
+
+#workspaces button {
+  color: @fg;
+  background-color: transparent;
+  margin: 1px;
+  padding: 0 6px;
+  border-radius: 0;
+}
+
+#workspaces button:first-child {
+  border-radius: 1px 0 0 1px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 1px 1px 0;
+}
+
+#workspaces button:first-child:last-child {
+  border-radius: 1px;
+}
+
+#workspaces button.urgent {
+  color: red;
+  background-color: yellow;
+}
+
+#workspaces button.active {
+  background-color: @rd1;
+  color: @bg;
+}
+
+#workspaces button.empty {
+  color: @ia1;
+}
+
+/* --- Custom Color+Shdow Omarchy --- */
+#custom-omarchy {
+  padding: 0 5px;
+  background-color: @bg;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  margin: 2px 4px 4px 4px;
+  color: @rd1;
+}
+
+/* --- General Modules --- */
+
+#tray,
+#cava,
+#mpris,
+#cpu,
+#battery,
+#network,
+#temperature,
+#bluetooth,
+#pulseaudio,
+#custom-weather,
+#custom-update,
 #clock {
-  background-color: @background;
+  padding: 0 5px;
+}
 
-  border-radius: 10px;
-  padding: 0 10 0 10;
+/* --- Right module Hover color --- */
+#cpu:hover,
+#temperature:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover {
+  background-color: @ia1;
+}
+
+#cava {
+  padding: 0 5px;
+  background-color: @background;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  margin: 2px 4px 4px 4px;
+  border-radius: 0;
+  color: #ff9b71;
+}
+
+#mpris {
+  padding: 0 5px;
+  background-color: @bg;
+  box-shadow: 1px 1px 3px 1px @ia1;
+  margin: 2px 4px 4px 4px;
+  color: @fg;
+}
+
+/* Specific Module */
+
+#tray-expander {
+  padding: 0 5px;
+  background: @bg;
+  color: @fg;
+  border-radius: 1px;
 }
 
 .hidden {
   opacity: 0;
-}
-
-#custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
-
-  padding: 0 11 0 10;
-}
-
-#custom-screenrecording-indicator.active {
-  color: #a55555;
-}
-
-
-/* EXTRA FIX! */
-#workspaces {
-  background-color: @background;
-  border-radius: 10px;
-  margin-left: 5px;
-  padding: 0 5 0 5;
-}
-#tray-expander {
-  background-color: @background;
-  border-radius: 10px;
-  padding: 0 0 0 10;
-}
-#pulseaudio {
-  padding: 0 15 0 10;
-}
-#tray {
-  margin: 0; 
-}
-#mpris {
-  margin-right: 5px;
-}
-#network.icon{
-  padding: 0 13 0 9;
-}
-
-tooltip {
-  border-radius: 10px;
 }
