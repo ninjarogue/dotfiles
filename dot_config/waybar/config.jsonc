@@ -4,15 +4,22 @@
   //"position": "top",
   "spacing": 0,
   "height": 26,
-  "modules-left": ["custom/omarchy", "hyprland/workspaces", "cava", "mpris"],
-  "modules-center": ["clock", "custom/weather", "custom/update"],
+  "modules-left": [
+    "custom/omarchy",
+    "hyprland/workspaces",
+    "cava",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock",
+    "battery",
+    "custom/update"
+  ],
   "modules-right": [
     "group/tray-expander",
     "temperature",
     "network",
-    "pulseaudio",
-    "cpu",
-    "battery"
+    "pulseaudio"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -54,11 +61,6 @@
     "interval": 3600
   },
 
-  "cpu": {
-    "interval": 5,
-    "format": "{usage}% 󰍛",
-    "on-click": "alacritty -e btop"
-  },
   "clock": {
     "format": "{:%A %H:%M}",
     "format-alt": "{:%d %B W%V %Y}",
@@ -66,7 +68,13 @@
     "on-click-right": "omarchy-cmd-tzupdate"
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "{ifname} 󰀂",
@@ -80,12 +88,34 @@
   },
   "battery": {
     "format": "{capacity}% {icon}",
-    "format-discharging": "{icon}",
+    "format-discharging": "{capacity}% {icon}",
     "format-charging": "{icon}",
-    "format-plugged": "{power}",
+    "format-plugged": "{power.0f}",
     "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
     },
     "format-full": "󰂅",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
@@ -111,7 +141,11 @@
     "scroll-step": 5,
     "format-muted": "󰝟",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
   },
   "group/tray-expander": {
@@ -120,7 +154,11 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray", "bluetooth"]
+    "modules": [
+      "custom/expand-icon",
+      "tray",
+      "bluetooth"
+    ]
   },
   "custom/expand-icon": {
     "format": "",
@@ -130,7 +168,6 @@
     "icon-size": 12,
     "spacing": 12
   },
-
   "mpris": {
     "format": "{artist} - {title}",
     //"format": "{player_icon} {artist} - {title}",
@@ -145,14 +182,6 @@
     "max-length": 30
   },
 
-  "custom/weather": {
-    "format": "{}°",
-    "tooltip": true,
-    "interval": 60,
-    "exec": "wttrbar --nerd --location Hildesheim",
-    "return-type": "json"
-  },
-
   "cava": {
     "framerate": 120,
     "autosens": 1,
@@ -163,9 +192,17 @@
     "input_delay": 2,
     "sleep_timer": 2,
     "hide_on_silence": true,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
   },
-
   "temperature": {
     "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",

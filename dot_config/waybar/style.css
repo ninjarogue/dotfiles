@@ -2,13 +2,13 @@
 
 @define-color bg @background;
 @define-color fg @foreground;
-@define-color rd1 #ff9b71;
+@define-color rd1 @foreground;
 @define-color ia1 #101010;
 
 * {
   border-radius: 1px;
-  font-family: "JetBrainsMono Nerd Font Propo";
-  font-size: 12px;
+  font-family: "Paper Mono";
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -116,24 +116,22 @@ window#waybar.empty #window {
 #tray,
 #cava,
 #mpris,
-#cpu,
 #battery,
 #network,
 #temperature,
 #bluetooth,
 #pulseaudio,
-#custom-weather,
 #custom-update,
 #clock {
   padding: 0 5px;
 }
 
 /* --- Right module Hover color --- */
-#cpu:hover,
 #temperature:hover,
 #bluetooth:hover,
 #network:hover,
-#pulseaudio:hover {
+#pulseaudio:hover,
+#battery:hover {
   background-color: @ia1;
 }
 
