@@ -22,7 +22,7 @@ Example: `Closes #1368`
 
 ## Describe what changes were introduced in this pull request
 
-Provide a high-level overview of the changes made in this branch. Write in paragraph form without using bullet points. Focus on explaining the overall purpose and impact of the changes rather than listing individual modifications.
+Provide a concise overview of the changes. Focus on the key changes and their purpose.
 
 ## Local testing
 
