@@ -28,7 +28,7 @@ window-padding-balance = true
 auto-update = check
 auto-update-channel = stable
 
-background-opacity = 0.9
+background-opacity = 1
 bell-features = audio
 auto-update = check
 clipboard-paste-protection = true
@@ -46,5 +46,10 @@ shell-integration-features = no-cursor
 
 # shaders
 custom-shader = shaders/cursor_warp.glsl
-custom-shader = shaders/cursor_blaze.glsl
 
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# Shift + enter newline (CLAUDE)
+keybind = shift+enter=text:\x1b\r
