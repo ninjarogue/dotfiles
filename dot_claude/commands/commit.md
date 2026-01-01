@@ -1,14 +1,15 @@
 ---
-argument-hint: [staged-or-all] [message]
+argument-hint: [message]
 description: Create a git commit
 ---
 
-Commit: $1
-Additional instructions: #ARGUMENTS
+Arguments: $ARGUMENTS
+
+Parse the arguments:
+- If `--staged` is present anywhere in the arguments → **Staged mode**: create a single commit. Remove `--staged` from the text and use the rest as the commit message.
+- Otherwise → **Default mode**: create atomic commits, using the text as optional context/message.
 
 # Git Commit Guidelines
-
-When creating commits, follow these guidelines to ensure clean, atomic commits that clearly communicate changes.
 
 ## Commit Message Format
 
@@ -23,9 +24,30 @@ Use conventional commit format with these prefixes:
 - `style:` - Code style changes (formatting, whitespace, etc.)
 - `perf:` - Performance improvements
 
-## Creating Atomic Commits
+---
 
-Before committing, organize your changes into a plan:
+## Staged Mode (`--staged`)
+
+Create a single commit with the provided message:
+
+1. **Review staged changes:**
+   ```bash
+   git status
+   git diff --staged
+   ```
+
+2. **Create a single commit** using the provided message (add appropriate prefix if not already included):
+   ```bash
+   git commit -m "prefix: message"
+   ```
+
+---
+
+## Default Mode (Atomic Commits)
+
+Organize all changes into atomic commits:
+
+### Creating Atomic Commits
 
 1. **Review all changes:**
 
@@ -47,14 +69,7 @@ Before committing, organize your changes into a plan:
    git commit -m "prefix: descriptive message"
    ```
 
-## Best Practices
-
-- **Atomic commits:** Each commit should be self-contained and represent a single logical change
-- **Clear messages:** Explain what changed and why (if not obvious)
-- **Present tense:** Use "add" not "added", "fix" not "fixed"
-- **Concise:** Keep the first line under 72 characters
-
-## Example Workflow
+### Example Workflow
 
 Given multiple changes across different files:
 
@@ -85,6 +100,14 @@ Given multiple changes across different files:
    git add src/utils/validation.ts
    git commit -m "fix: handle edge case in validation"
    ```
+
+---
+
+## Best Practices (Both Modes)
+
+- **Clear messages:** Explain what changed and why (if not obvious)
+- **Present tense:** Use "add" not "added", "fix" not "fixed"
+- **Concise:** Keep the first line under 72 characters
 
 ## Commit Body Guidelines
 
