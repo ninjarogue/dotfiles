@@ -1,48 +1,33 @@
 {
+  "fileSuggestion": {
+    "type": "command",
+    "command": "~/.claude/file-suggestion.sh"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
-      "Bash(git add:*)",
-      "Bash(git diff:*)",
-      "Bash(gh pr view:*)",
-      "Bash(gh pr list:*)",
-      "Bash(gh pr diff:*)",
-      "Bash(gh pr checks:*)",
-      "Bash(gh pr status:*)",
-      "Bash(gh pr reviews:*)",
-      "Bash(gh pr files:*)",
-      "Bash(gh pr comment:*)",
-      "Bash(gh issue view:*)",
-      "Bash(gh run list:*)",
-      "Bash(gh run view:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
-      "Bash(head:*)",
-      "Bash(rg:*)",
-      "Bash(yarn type-check)",
-      "Bash(yarn build)",
-      "Bash(ls:*)",
-      "Bash(cat:*)",
       "WebSearch",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:nextjs.org)",
-      "WebFetch(domain:www.npmjs.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:code.claude.com)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:react.dev)",
-      "Write(*.md)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.claude.ai)",
+      "Bash(agent-browser:*)",
+      "Bash(yarn build)",
+      "Read"
     ],
     "deny": [
-      "Bash(rm:*)",
-      "Bash(curl:*)"
+      "Bash(rm -rf:*)"
     ],
     "ask": [
-      "WebFetch",
+      "Bash(rm:*)",
+      "Bash(curl:*)",
+      "Bash(git reset:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git reset:*)",
-      "Bash(gh pr create:*)"
-    ]
+      "Bash(gh pr create:*)",
+      "Bash(sed:*)"
+    ],
+    "defaultMode": "default"
   },
   "hooks": {
     "Notification": [
@@ -51,7 +36,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
+            "command": "pw-play /usr/share/sounds/freedesktop/stereo/complete.oga"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${HOME}/.claude/scripts/pre-pr-check.sh",
+            "timeout": 120000
           }
         ]
       }
@@ -59,11 +56,23 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "input=$(cat); dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); if [ \"$dir\" = \"$HOME\" ]; then dir='~'; else dir=\"${dir/#$HOME/\\~}\"; fi; printf '%s in %s' \"$(whoami)\" \"$dir\""
+    "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "explanatory-output-style@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true
+    "code-review@claude-plugins-official": true,
+    "ralph-wiggum@claude-plugins-official": false,
+    "code-simplifier@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "cartographer@cartographer-marketplace": false,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true
   },
+  "defaultMode": "ask",
   "disableBypassPermissionsMode": "disable"
 }
