@@ -1,0 +1,3 @@
+- By telling Claude to "Invoke /react-best-practices", it will use the Skill tool to load that skill's context
+- The skill provides the domain knowledge; the command provides the workflow/output format
+- This separation lets you update best practices in one place (the skill) while keeping the assessment workflow in the command
