@@ -4,29 +4,15 @@
   "permission": {
     "edit": "ask",
     "bash": {
-      "*": "ask",
-      "yarn biome check --write --unsafe": "ask",
-      "biome check --write --unsafe": "ask",
-      "yarn type-check": "allow",
-      "git status*": "allow",
-      "git diff*": "allow",
-      "git log*": "allow",
-      "git show*": "allow",
-      "git remote*": "allow",
-      "git fetch*": "allow",
-      "find*": "allow",
-      "rg*": "allow",
-      "yarn*": "allow",
-      "npx tsc --noEmit": "allow",
-      "npx biome*": "allow",
-      "ls*": "allow",
-      "pwd": "allow",
-      "cd": "allow",
-      "grep*": "allow",
-      "gh search*": "allow",
-      "gh issue view*": "allow",
+      "*": "allow",
+      "git commit*": "ask",
+      "git fetch*": "ask",
+      "git push*": "ask",
+      "curl*": "ask",
+      "sed*": "ask",
       "rm": "deny",
-      "git rm*": "ask"
+      "rm -rf*": "deny",
+      "pkill*": "ask"
     },
     "webfetch": "ask"
   },
@@ -41,7 +27,16 @@
     "list": true,
     "glob": true
   },
-  "plugin": [
-    "oh-my-opencode"
-  ]
+  "mcp": {
+    "next-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "next-devtools-mcp@latest"
+      ],
+      "enabled": true,
+      "environment": {}
+    }
+  },
 }
