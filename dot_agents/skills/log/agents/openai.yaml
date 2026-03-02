@@ -1,0 +1,4 @@
+interface:
+  display_name: "Log"
+  short_description: "Summarize session progress and save notes to Obsidian."
+  default_prompt: "Use /log to summarize session_log.md, then append a timestamped entry to a branch-scoped note in /home/aric/Documents/sourdough/session_logs/<repo>/<branch>.md (fallback: session_log.md when git context is unavailable)."
