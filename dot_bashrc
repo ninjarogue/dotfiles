@@ -1,9 +1,33 @@
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 
+# Shadow try and mise before omarchy source to prevent eager init
+try() { :; }
+mise() { :; }
+
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
+
+# Lazy-load try - only initialize on first use
+unset -f try
+try() {
+  unset -f try
+  eval "$(command try init ~/Work/tries)"
+  try "$@"
+}
+
+# Lazy-load mise - only initialize on first use
+unset -f mise
+mise() {
+  unset -f mise
+  eval "$(command mise activate bash)"
+  mise "$@"
+}
+
+# Initialize bash-it
+export BASH_IT="$HOME/.bash_it"
+source "${BASH_IT}/bash_it.sh"
 
 # Add your own exports, aliases, and functions here.
 #
@@ -23,16 +47,19 @@ set -h
 # Enable vi mode
 set -o vi
 
-# Source bash aliases file
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
-fi
-
 # Source bash functions file
 if [ -f ~/.bash_functions ]; then
   source ~/.bash_functions
 fi
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.config/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+eval "$(fnm env --use-on-cd --shell bash)"
+
+# Claude Code CLI
+export PATH="$HOME/.local/bin:$PATH"
+
+# Override Omarchy's default `n` helper without editing Omarchy defaults.
+n() { command nvim "$@"; }
