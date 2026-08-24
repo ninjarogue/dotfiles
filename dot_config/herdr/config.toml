@@ -1,0 +1,53 @@
+onboarding = false
+# herdr configuration
+# https://herdr.dev
+
+[theme]
+name = "vesper"
+
+[theme.custom]
+sidebar_bg = "#0e0e0e"
+panel_bg = "#0e0e0e"
+surface0 = "#1a1a1a"
+surface1 = "#222222"
+surface_dim = "#141414"
+text = "#d4d4d4"
+subtext0 = "#8a8a8a"
+overlay0 = "#5c5c5c"
+overlay1 = "#9a9a9a"
+accent = "#b8b2a8"
+green = "#8f8f8f"
+yellow = "#a8a8a8"
+red = "#c4b8a8"
+blue = "#8a8a8a"
+teal = "#8f8f8f"
+peach = "#a8a098"
+mauve = "#9a9a9a"
+
+[keys]
+# Prefix key to enter prefix mode (default: "ctrl+b")
+prefix = "ctrl+a"
+focus_agent = "prefix+alt+1..9"
+
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "herdr-last.toggle-tab"
+description = "Toggle to last tab"
+
+[[keys.command]]
+key = "prefix+."
+type = "plugin_action"
+command = "herdr-last.toggle-workspace"
+description = "Toggle to last workspace"
+
+[ui]
+agent_panel_sort = "priority"
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+status_indicators = "symbols"
+
+# Yazi (and other TUIs) need this to draw image previews in a pane.
+# Off by default; Ghostty supports the protocol natively.
+[experimental]
+kitty_graphics = true
