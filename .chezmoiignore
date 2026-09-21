@@ -20,6 +20,16 @@
 .config/opencode/bun.lock
 .config/opencode/.gitignore
 
+# herdr runtime state, logs, sockets, and plugin checkouts (herdr manages these).
+.config/herdr/herdr-client.log
+.config/herdr/herdr-server.log
+.config/herdr/herdr-client.sock
+.config/herdr/herdr.sock
+.config/herdr/session.json
+.config/herdr/release-notes.json
+.config/herdr/.plugins.lock
+.config/herdr/plugins
+
 # pstack-mode is a separate git checkout (github.com/ninjarogue/pi-pstack-mode)
 # and manages its own files. Chezmoi must not manage it: `chezmoi apply` would
 # revert local edits to a git working tree.
