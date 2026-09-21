@@ -1,42 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoupdate": true,
-  "permission": {
-    "edit": "ask",
-    "bash": {
-      "*": "allow",
-      "git commit*": "ask",
-      "git fetch*": "ask",
-      "git push*": "ask",
-      "curl*": "ask",
-      "sed*": "ask",
-      "rm": "deny",
-      "rm -rf*": "deny",
-      "pkill*": "ask"
-    },
-    "webfetch": "ask"
-  },
-  "tools": {
-    "todowrite": true,
-    "todoread": true,
-    "grep": true,
-    "read": true,
-    "lsp": true,
-    "skill": true,
-    "bash": true,
-    "list": true,
-    "glob": true
-  },
-  "mcp": {
-    "next-devtools": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "next-devtools-mcp@latest"
-      ],
-      "enabled": true,
-      "environment": {}
-    }
-  },
+  "autoupdate": false,
+  "instructions": [
+    "/home/aric/.config/opencode/pstack-models.md"
+  ],
+  "skills": [
+    "/home/aric/.pi/agent/git/github.com/michael-denyer/pstack-claude/plugins/pstack/skills"
+  ],
+  "websearch": {
+    "provider": "firecrawl"
+  }
 }

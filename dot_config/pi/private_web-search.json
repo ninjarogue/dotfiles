@@ -1,0 +1,44 @@
+{
+  "tinyfishApiKey": "!/home/aric/.pi/agent/bin/web-access-credential tinyfish",
+  "firecrawlBaseUrl": "https://api.firecrawl.dev",
+  "firecrawlApiKey": "!/home/aric/.pi/agent/bin/web-access-credential firecrawl",
+  "firecrawlApiVersion": "v2",
+  "firecrawlFreshScrape": true,
+  "searchRouting": {
+    "providers": [
+      "tinyfish",
+      "firecrawl"
+    ],
+    "useCurrentModel": false,
+    "fallbackOn": [
+      "transient",
+      "quota",
+      "network",
+      "invalid-response"
+    ]
+  },
+  "fetchRouting": {
+    "providers": [
+      "tinyfish",
+      "firecrawl",
+      "http"
+    ],
+    "allowRemoteHostedProviders": true
+  },
+  "workflow": "none",
+  "maxInlineContentChars": 6000,
+  "githubClone": {
+    "enabled": false
+  },
+  "githubPrIssue": {
+    "enabled": false
+  },
+  "youtube": {
+    "enabled": false
+  },
+  "tools": {
+    "sourceCheck": {
+      "enabled": false
+    }
+  }
+}

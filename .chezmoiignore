@@ -1,0 +1,26 @@
+# Credentials and secrets: never manage these in this (public) repo.
+# Restore them manually from a password manager / provider dashboard.
+.pi/agent/auth.json
+.pi/agent/typesafe-auth.json
+.config/opencode/service.json
+
+# Runtime state, caches, and session data.
+.pi/agent/sessions
+.pi/agent/backups
+.pi/agent/git
+.pi/agent/models-store.json
+.pi/agent/result-archive.db
+.pi/agent/trust.json
+.config/pi/web-search-cache
+
+# Generated package-manager artifacts.
+.config/opencode/node_modules
+.config/opencode/package.json
+.config/opencode/package-lock.json
+.config/opencode/bun.lock
+.config/opencode/.gitignore
+
+# pstack-mode is a separate git checkout (github.com/ninjarogue/pi-pstack-mode)
+# and manages its own files. Chezmoi must not manage it: `chezmoi apply` would
+# revert local edits to a git working tree.
+.pi/agent/local/pstack-mode

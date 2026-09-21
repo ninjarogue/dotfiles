@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "actionFusion": true,
+  "observationPack": true,
+  "evidencePreservingReducer": true,
+  "evidencePreservingReducerProvider": "openai-codex",
+  "evidencePreservingReducerModel": "gpt-5.4-mini",
+  "onlineContextCompact": false,
+  "cacheWriteReadRatio": 12.5
+}
